@@ -26,8 +26,12 @@ function App() {
   const saveEdit = (id, selectTittle, selectDisc) => {
     [...todos].map((item) => {
       if (item.id === id) {
-        item.tittle = selectTittle;
-        item.disc = selectDisc;
+        if (selectTittle && selectDisc) {
+          item.tittle = selectTittle;
+          item.disc = selectDisc;
+        } else {
+          alert('Заполните все поля!');
+        }
       }
       return null;
     });
